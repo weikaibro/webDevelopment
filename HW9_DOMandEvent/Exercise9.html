@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset='utf-8'/>
+		<title>Exercise9</title>
+		<script src='Baby_name_Short.js'></script>
+	</head>
+	
+	<body>
+		<input type='text' id='inputText' placeholder='Use a space to seperate'></input>
+		<button id='btn' onclick='add()'></button>
+		<p id='p1'></p>
+		<p id='p2'></p>
+		<table id='name_table'></table>
+		<script>
+			// 把姓名新增到表格內
+			var nameArray = Baby_Name_List.split(',');
+			var tr = document.createElement('tr');
+			var table = document.getElementById('name_table');
+			table.appendChild(tr);
+			var th = document.createElement('th');
+			tr.appendChild(th);
+			var _name = document.createTextNode('Names');
+			th.appendChild(_name);
+			for (var i=0; i<nameArray.length; i++) {
+				var tr = document.createElement('tr');
+				table.appendChild(tr);
+				var td = document.createElement('td');
+				tr.appendChild(td);
+				var babyName = document.createTextNode(nameArray[i]);
+				td.appendChild(babyName);
+			}
+			
+			// 顯示表格內名字的數量
+			document.getElementById("p1").innerHTML = "現在有<span id='number'>0</span>個人";
+			document.getElementById('number').innerHTML = table.children.length - 1;
+		
+			// 將輸入在 input 中的名字放進表格內
+			var btnText = document.createTextNode('Add a name!');
+			var button = document.getElementById('btn');
+			button.appendChild(btnText);
+			
+			// button onclick 事件，並確認名字的輸入格式是否有誤
+			function add() {
+				var inputValue = document.getElementById('inputText').value;
+				var inputNameArray = inputValue.split(' ');
+				if ( inputNameArray.length == 2 ) {
+					var nameText = document.createTextNode(inputNameArray[0]);
+					var tr = document.createElement('tr');
+					table.appendChild(tr);
+					var td = document.createElement('td');
+					tr.appendChild(td);
+					td.appendChild(nameText);
+					document.getElementById('number').innerHTML = table.children.length - 1;
+				} else {
+					alert('Wrong input!');
+				}
+			}
+			
+			// 將表格設置 CSS，並設置一個 copy 監聽器
+			table.setAttribute('border', '1px solid');
+			addEventListener('copy', event => { 
+				var p2 = document.getElementById('p2');
+				var copyText = document.createTextNode('NAME is copied!');
+				p2.appendChild(copyText);
+			} );
+		</script>
+	</body>
+</html>

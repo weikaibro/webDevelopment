@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset='utf-8'/>
+		<title>Exercise 8</title>
+		<script src='Baby_name.js'></script>
+		<style>span { width:100px;  display:inline-block; }</style>
+	</head>
+	
+	<body>
+		<select name='name' id='name'>
+		</select>
+		<button onclick='_select()'>Select</button>
+		<button onclick='_iFeelLucky()'>I feel lucky</button>
+		<button onclick='_letsDisco()' id='disco'>Let's Disco!</button>
+		
+		<p id='nameList'></p>
+		<script>
+			var nameArray = Baby_Name_List.split(',');
+			var j = 1;
+			var k = 2;
+			for ( let i=1; i<=nameArray.length; i++ ) {     // pyramid structure
+				document.getElementById("name").innerHTML += "<option value='" + nameArray[i-1] + "'>" + i + "." + nameArray[i-1] + "</option>";
+				document.getElementById("nameList").innerHTML += "<span id='" + nameArray[i-1] + "'>" + nameArray[i-1] + "</span>";
+				if ( j == i ) {
+					document.getElementById("nameList").innerHTML += "<br>";
+					j += k;
+					k++;
+				}
+			}
+			
+			function _select() {       // select the specific person
+				var selectPerson = document.querySelector("select").value;
+				for (let i=1; i<=nameArray.length; i++) {
+					document.getElementById(nameArray[i-1]).style = "background-color : white;";
+				}
+				document.getElementById(selectPerson).style = "background-color : lightblue;";
+			}
+			
+			function _iFeelLucky() {   // randomly select a person
+				var randomNumber = Math.floor( Math.random()*231 );
+				for (let i=1; i<=nameArray.length; i++) {
+					document.getElementById(nameArray[i-1]).style = "background-color : white;";
+				}
+				document.getElementById(nameArray[randomNumber]).style = "background-color : lightblue;";
+			}
+			
+			function _letsDisco() {    // randomly select a person in a time interval
+				var letsDisco = document.getElementById('disco');
+				const clock = setInterval(playDisco, 1000);
+				if ( letsDisco.innerHTML == "Let's Disco!" ) {
+					letsDisco.innerHTML = 'Stop the music!';				
+				} else if ( letsDisco.innerHTML == 'Stop the music!' ) {
+					clearInterval(playDisco);
+					letsDisco.innerHTML = "Let's Disco!";
+					console.log('stop');
+				}
+			}
+			
+			function playDisco() {     // interact with _letsDisco function 
+				var randomNumber = Math.floor( Math.random()*231 );
+				document.getElementById(nameArray[randomNumber]).style = "background-color : lightblue;";
+				var whiteBG = setInterval(( ()=>document.getElementById(nameArray[randomNumber]).style = "background-color : white;"), 1000);
+			}
+		</script>
+	</body>
+</html>

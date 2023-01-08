@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- Mar.7,2022 -->
+
+<html>
+	<head>
+		<meta charset='utf-8'/>
+		<title>Exercise10</title> 
+		<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+	</head>
+
+	<body>
+		<img src="ncku-logo1.jpg" width='200' alt='ncku'>
+		
+		<!--<a>"anchor"元素，被一個用來放"超連結"的文本標記，例如外部網站或是Email等等-->
+		<a href="https://web.ncku.edu.tw/">
+			<img src="https://web.ncku.edu.tw/var/file/0/1000/img/1215/ncku-logo2.jpg" width='200'>
+		</a>
+		<br>
+		
+		<!--如何在網頁中插入一個音檔? --><!--"controls"是必寫元素，因為它的功能是讓音檔顯示在網頁上，並且可讓使用者操控 -->
+		<audio src="Lucid_Dreamer/Lucid_Dreamer.mp3" autoplay controls muted alt=''></audio>
+		<br>
+
+		<!--如何在網頁中插入一部影片? -->
+		<iframe width="640" height="360" src="https://www.youtube.com/embed/6V7oVQ05oSA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+		<br>
+		
+		<!-- How to set email and phone call -->
+		<a href="mailto:wayne900719@gmail.com">Email me</a>
+		<br>
+		<a href="tel:(06)275-7575">Contact NCKU</a>
+		<br>
+		
+		<!-- How to create List? -->
+		<p>My favorite sites:</p> 
+		<ul>				   
+			<li>Youtube</li>
+			<li>Wikipedia</li>
+			<li>Amazon</li>
+			<li>Facebook</li>
+				<ol type='A'>
+					<li>Instagram</li>
+					<li>WhatsApp</li>
+					<li>Oculus VR</li>
+				</ol>
+		</ul>
+		
+		<table border='1'>     <!-- How to create Table? -->
+			<caption><b>Fruit Juice Drinks and Meals</b></caption>
+			<thead>
+				<tr>
+					<td rowspan='2' colspan='2'>
+					<td colspan='3' align='center'><b>Fruit Juice Drinks</b>
+				<tr>
+					<td><b>Apple</b>
+					<td><b>Orange</b>
+					<td><b>Screwdriver</b>
+			</thead>
+			<tbody>
+				<tr>
+					<td rowspan='3'><b>Meal</b>
+					<td>Breakfast
+					<td>0
+					<td>1
+					<td>0
+				<tr>
+					<td>Lunch
+					<td>1
+					<td>0
+					<td>0
+				<tr>
+					<td>Dinner
+					<td>0
+					<td>0
+					<td>1
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan='2' align='center'><b>Total</b>
+					<td>1
+					<td>1
+					<td>1
+			</tfoot>
+		
+		<script>
+			$("audio").remove();
+			$("iframe").remove();
+			$("ol li").append(" (Acquired by Facebook)").wrap("<a href='https://www.google.com' />");
+			$("thead").css("border", "1px dashed");
+			// 以上為基本指令
+			
+			$($("img")[0]).hover(function(){ $($("img")[1]).hide(); }, function(){ $($("img")[1]).show(); });
+			// $("body>img").hover(function(){ $("a>img").hide(); }, function(){ $("a>img").show(); });
+			/// 外面還要再包一層，DOM才會轉成jquery物件
+			
+			$("td").each(function(){
+				if ( $(this).text().trim() == "1" ){
+					$(this).css("background-color", "lightblue");
+				}
+			});
+			// 對每一個td元素都執行一個function，因此不能漏掉function不寫。
+			/// trim()目的是將一個字串的兩端空白字符給去除，
+			/// 才可以單獨抓到內容，否則會連換行符號一起抓。
+			
+			
+			
+			$($("img")[0]).click(function(){
+				var tmp_txt = $($("a")[1]).text();
+				var tmp_href = $($("a")[1]).attr("href");
+				
+				$($("a")[1]).text($($("a")[2]).text());
+				$($("a")[1]).attr("href", $($("a")[2]).attr("href"));
+				
+				$($("a")[2]).text(tmp_txt);
+				$($("a")[2]).attr("href", tmp_href);
+			});
+			// 透過第三方變數(tmp_txt, tmp_href)，來協助swap的過程。
+			
+			$("body>img").click(function(){
+				$(this).animate({ height : "600px" });
+				$(this).animate({  width : "600px" });
+				$(this).animate({ height : "200px" });
+				$(this).animate({  width : "200px" });
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset='utf-8'/>
+		<title>Exercise7</title>
+		<style>
+			body     { border  : solid;
+					   padding : 5px;
+					   width   : 340px; }
+			button   { width   : 70px;
+					   margin  : 5px; }
+			.special { width   : 325px;}
+		</style>
+	</head>
+	
+	<body id='1'>
+		<h2 align='center'>My Calculator</h2>
+		<p>Result&nbsp;&nbsp;&nbsp;<span id='result'></span></p>
+		<p>&nbsp;Input&nbsp;&nbsp;<span id='input'></span></p>
+		
+		<button onclick='_clear()'>Clear</button>
+		<button onclick='cal_left()'>(</button>
+		<button onclick='cal_right()'>)</button>
+		<br>
+		<button onclick='cal_1()'>1</button>
+		<button onclick='cal_2()'>2</button>
+		<button onclick='cal_3()'>3</button>
+		<button onclick='cal_add()'>+</button>
+		<br>
+		<button onclick='cal_4()'>4</button>
+		<button onclick='cal_5()'>5</button>
+		<button onclick='cal_6()'>6</button>
+		<button onclick='cal_sub()'>-</button>
+		<br>
+		<button onclick='cal_7()'>7</button>
+		<button onclick='cal_8()'>8</button>
+		<button onclick='cal_9()'>9</button>
+		<button onclick='cal_mul()'>×</button>
+		<br>
+		<button onclick='cal_dot()'>.</button>
+		<button onclick='cal_0()'>0</button>
+		<button onclick='_result()'>=</button>
+		<button onclick='cal_div()'>÷</button>
+		<br>
+		<button class='special' onclick='_statement()'>Check my result</button>
+		<script>
+			function cal_1() {
+				var num = '1';
+				cal(num);
+			}function cal_2() {
+				var num = '2';
+				cal(num);
+			}function cal_3() {
+				var num = '3';
+				cal(num);
+			}function cal_4() {
+				var num = '4';
+				cal(num);
+			}function cal_5() {
+				var num = '5';
+				cal(num);
+			}function cal_6() {
+				var num = '6';
+				cal(num);
+			}function cal_7() {
+				var num = '7';
+				cal(num);
+			}function cal_8() {
+				var num = '8';
+				cal(num);
+			}function cal_9() {
+				var num = '9';
+				cal(num);
+			}function cal_0() {
+				var num = '0';
+				cal(num);
+			}function cal_add() {
+				var num = '+';
+				cal(num);
+			}function cal_sub() {
+				var num = '-';
+				cal(num);
+			}function cal_mul() {
+				var num = '*';
+				cal(num);
+			}function cal_div() {
+				var num = '/';
+				cal(num);
+			}function cal_dot() {
+				var num = '.';
+				cal(num);
+			}function cal_left() {
+				var num = '(';
+				cal(num);
+			}function cal_right() {
+				var num = ')';
+				cal(num);
+			}
+			function cal(x) {    // 將string不斷疊加上去
+				var inputNumber = document.getElementById('input');
+				inputNumber.innerHTML += x;
+			}
+			function _result() {   // 計算結果的呈現
+				var inputNumber = document.getElementById('input').innerHTML;
+				var numberCalculate = eval(inputNumber);    // eval()可將所有輸入的string，全部轉換成int來計算
+				var resultNumber = document.getElementById('result');
+				resultNumber.innerHTML = numberCalculate;
+			}
+			function _clear() {    // 將算式與結果全部清除
+				document.getElementById('input').innerHTML = "";
+				document.getElementById('result').innerHTML = "";
+			}
+			function _statement() {   // 針對輸出的結果顯示其狀態
+				var resultNumber = document.getElementById('result');
+				var inputNumber = document.getElementById('input').innerHTML;
+				var numberCalculate = eval(inputNumber);
+				if (numberCalculate < 0) {
+					resultNumber.innerHTML = "negative";
+				} if (numberCalculate > 0) {
+					resultNumber.innerHTML = "positive";
+				} if (numberCalculate == null) {
+					resultNumber.innerHTML = "no result yet";
+				} if (numberCalculate == 0) {
+					resultNumber.innerHTML = "zero";
+				} if (numberCalculate%3 == 0) {
+					resultNumber.innerHTML += "(3)";
+				}
+			}
+		</script>
+	</body>
+</html>

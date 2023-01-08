@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset='utf-8'/>
+		<title>prac</title>
+		<script>
+			function nameFunc() {
+				var list1 = document.getElementById("list");
+				var name1 = document.getElementById("name");
+				if ( name1.value == 69 ) {
+					list1.innerHTML += '<li>' + 'win' + '</li>';
+				} else {
+					list1.innerHTML += '<li>' + 'lose' + '</li>';
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<label>Guess number(code is 69)<br>
+		<input id='name' type='number' autocomplete='off'>
+		</label>
+		
+		<button onclick='nameFunc()'>check</button>
+		<ul id='list'></ul>
+	</body>
+</html>

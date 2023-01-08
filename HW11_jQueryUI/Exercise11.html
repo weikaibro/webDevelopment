@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!-- Mar.7,2022 -->
+
+<html>
+	<head>
+		<meta charset='utf-8'/>
+		<title>Exercise11</title> 
+		<link rel='stylesheet' href='https://code.jquery.com/ui/1.13.1/themes/sunny/jquery-ui.css'>
+		<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+		<script src='https://code.jquery.com/ui/1.13.1/jquery-ui.js'></script>
+		<style>
+			.ui-menu { width: 250px; }
+			#prog1   { width: 300px; }
+			#slider1 { width: 500px; }
+		</style>
+	</head>
+
+	<body>
+		<!--設計選單-->
+		<ul id='menu1'>
+			<li>
+				<div>My favorite sites</div>
+				<ul>				   
+					<div>Youtube</div>
+					<div>Wikipedia</div>
+					<div>Amazon</div>
+					<li>
+						<div>Facebook</div>
+						<ul>
+							<div>Instagram</div>
+							<div>WhatsApp</div>
+							<div>Oculus VR</div>
+						</ul>
+					</li>
+				</ul>
+			</li> 
+		</ul><br>
+		
+		<!--設計日期-->
+		<p>請選擇日期 ( yy-mm-dd )</p>		
+		<input id='pickDate1'><br><br>
+		
+		<!--設計進度條-->
+		<p>你今天已經過了&nbsp;<span id='prognum'></span>&nbsp;%</p>
+		<div id='prog1'></div><br>
+		
+		<!--設計滑桿-->
+		<p>( 0-100 ) :&nbsp;<span id='slidernum'></span></p>
+		<div id='slider1'></div><br><br>
+		
+		<!--設計頁面選擇-->
+		<div id='my_tabs'>
+			<ul>
+				<li><a href='#t1'>Exercise1</a></li>
+				<li><a href='#t2'>Exercise2</a></li>
+				<li><a href='#t3'>Exercise3</a></li>
+				<li><a href='#t4'>Exercise11</a></li>
+			</ul>
+			<div id='t1'>
+				<a href='Exercise1.html' target="iframe_a">Exercise 1</a>
+			</div>
+			<div id='t2'>
+				<a href='Exercise2.html' target="iframe_a">Exercise 2</a>
+			</div>
+			<div id='t3'>
+				<a href='exercise3.html' target="iframe_a">Exercise 3</a>
+			</div>
+			<div id='t4'>
+				<a href='exercise11.html' target="iframe_a">Exercise 11</a>
+			</div>
+			<iframe name="iframe_a" width='1200' height='800'></iframe>
+		</div><br><br>
+		
+		<!--設計對話-->
+		<button id='btn1'>Feeling lucky!</button>
+		<div id='dia1' title='Feel lucky!'>
+			<p id='luckyText'></p>
+		</div>
+		<ul>
+			<li>unlucky : 20%</li>
+			<li>average : 60%</li>
+			<li>very lucky : 20%</li>
+		</ul>
+		
+		<script>
+			// 設計選單
+			$('#menu1').menu({icons:{submenu: 'ui-icon-plusthick'}});
+			
+			// 設計日期選擇器
+			$('#pickDate1').datepicker({dateFormat:'yy-mm-dd'});
+			
+			// 設計進度條
+			setInterval(function() {
+				var time = new Date();
+				var totalSecond = time.getHours()*3600 + time.getMinutes()*60 + time.getSeconds();
+				var timePercentage = totalSecond/86400;
+				$('#prog1').progressbar({'value':timePercentage*100});
+				var progNum = $('#prog1').progressbar('value');
+				$('#prognum').text(progNum);
+				console.log(timePercentage);
+				console.log(totalSecond);
+			}, 1000);
+			
+			
+			// 設計滑桿
+			$('#slider1').slider({
+				max: 50,
+				min: 1,
+				change: sliderChange
+			});
+			function sliderChange() {
+				var sliderNum = $('#slider1').slider('value');
+				$('#slidernum').text(sliderNum*2 - 1);
+			}
+			
+			// 設計頁面選擇 (ul,li結合div) 
+			$('#my_tabs').tabs();
+			
+			// 設計對話框
+			$('#btn1').click(function(){
+				var x = Math.floor((Math.random() * 5) + 1);
+				if ( x == 1 ) {
+					$('#luckyText').text('unlucky!');
+				} else if ( x == 5 ) {
+					$('#luckyText').text('very lucky!!');
+				} else {
+					$('#luckyText').text('average!');
+				}
+				$('#dia1').dialog({resizable:false});
+			})
+		</script>
+	</body>
+</html>

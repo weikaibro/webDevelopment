@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset='utf-8'/>
+		<title>exercise3</title> 
+		<style type="text/css">
+			.color1 {background:#cff0ec;}
+			.color2 {background:#ffe9f4;}
+			.color3 {background:#c3e6fc;}
+			fieldset legend {background:white;}
+			.click:focus {background:gray;}
+		</style>
+	</head>
+
+	<body>
+		<h1> My Dream House </h1>
+		<form name='login' action='http://httpbin.org/post' method='post'>
+			<fieldset class="color1">
+				<legend>Location</legend>
+				<label>Zipcode : <input type='text' size='5' pattern="[0-9]{3,3}"></label><br><br>
+				<label>Address1 : <input type='text' size='50' pattern=".{,20}" placeholder='Address longer than 20 characters, use the address 2'></label><br><br>
+				<label>Address2 : <textarea name='comment' rows='5' cols='20'></textarea></label><br>
+			</fieldset>
+			<fieldset class="color2">
+				<legend>Preference</legend>
+				<label>Painting color : <input name='color' type='color' value='#0000FF'></label><br><br>
+				<label>Time you want to visit Open House : <input name='time' type='time' min="10:00" max="16:00" ></label><br>
+			</fieldset>
+			<fieldset class="color3">
+			<legend>Contact me</legend>
+				<label>Name : <input class="click" name='name' type='text' pattern="[a-z]{4,}"></label><br><br>
+				<label>Phone : <input name='phone' type='text' pattern="[0-9]{7,}"></label><br><br>
+			</fieldset>
+			<input type='submit' value='Submit'>
+			<input type='reset' value='Reset'><br>
+		</form>
+	</body>
+</html>

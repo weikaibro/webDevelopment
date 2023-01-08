@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- Mar.7,2022 -->
+
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<title>exercise2</title> 
+</head>
+
+<body>
+	<img src="media/ncku-logo1.jpg" width='200' alt='ncku'>
+	
+	<!--<a>"anchor"元素，被一個用來放"超連結"的文本標記，例如外部網站或是Email等等-->
+	<a href="https://web.ncku.edu.tw/">
+		<img src="https://web.ncku.edu.tw/var/file/0/1000/img/1215/ncku-logo2.jpg" width='200'>
+	</a>
+	<br>
+	
+	<!--如何在網頁中插入一個音檔? -->
+	<audio src="media/Lucid_Dreamer/Lucid_Dreamer.mp3" autoplay controls muted alt=''></audio>
+	<br>
+
+	<!--如何在網頁中插入一部影片? -->
+	<iframe width="640" height="360" src="https://www.youtube.com/embed/6V7oVQ05oSA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+	<br>
+	
+	<!-- How to set email and phone call -->
+	<a href="mailto:wayne900719@gmail.com">Email me</a>
+	<br>
+	<a href="tel:(06)275-7575">Contact NCKU</a>
+	<br>
+	
+	<!-- How to create List? -->
+	<p>My favorite sites:</p> 
+	<ul>				   
+		<li>Youtube</li>
+		<li>Wikipedia</li>
+		<li>Amazon</li>
+		<li>Facebook</li>
+			<ol type='A'>
+				<li>Instagram</li>
+				<li>WhatsApp</li>
+				<li>Oculus VR</li>
+			</ol>
+	</ul>
+	
+	<table border='1'>     <!-- How to create Table? -->
+		<caption><b>Fruit Juice Drinks and Meals</b></caption>
+		<thead>
+			<tr>
+				<td rowspan='2' colspan='2'>
+				<td colspan='3' align='center'><b>Fruit Juice Drinks</b>
+			<tr>
+				<td><b>Apple</b>
+				<td><b>Orange</b>
+				<td><b>Screwdriver</b>
+		</thead>
+		<tbody>
+			<tr>
+				<td rowspan='3'><b>Meal</b>
+				<td>Breakfast
+				<td>0
+				<td>1
+				<td>0
+			<tr>
+				<td>Lunch
+				<td>1
+				<td>0
+				<td>0
+			<tr>
+				<td>Dinner
+				<td>0
+				<td>0
+				<td>1
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan='2' align='center'><b>Total</b>
+				<td>1
+				<td>1
+				<td>1
+		</tfoot>
+			
+</body>
+</html>

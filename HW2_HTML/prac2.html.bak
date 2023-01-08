@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset='utf-8'/>
+		<title>prac2</title>
+		<style>
+			table {text-align: center;}
+			thead {background: green;}
+		</style>
+	</head>
+	<body>
+		<img src='media/ncku-logo1.jpg' width='200'>
+		
+		<a href='https://www.ncku.edu.tw/'>
+		<img src='https://web.ncku.edu.tw/var/file/0/1000/img/1215/ncku-logo2.jpg' width='200'>
+		</a><br>
+		
+		<audio src='media/Lucid_Dreamer/Lucid_Dreamer.mp3' autoplay controls muted></audio>
+		
+		<video src='media/莊心妍 - 好可惜『終於失去你』【動態歌詞Lyrics】.mp4' controls></video>
+		<br>
+		
+		<a href='mailto:wayne900719@gmail.com'>Email me</a><br>
+		<a href='https://www.ncku.edu.tw/'>Contact NCKU</a><br>
+		
+		<h2>思考漣漪</h2>
+		<ol type='1'>
+			<li>寶博士: NFT才發揮不到1%的實力</li>
+				<ol type='a'>
+					<li>NFT要把它當成一個工具</li>
+				</ol>
+		</ol>
+		<ol start='2'>
+			<li>相信陌生人</li>
+				<ol type='I'>
+					<li>默認真實</li>
+					<li>別更加多疑</li>
+				</ol>
+		</ol>
+		<ol start='3'>
+			<li>Grenade AMA</li>
+				<ul>
+					<li>Woody持有哪些幣?</li>
+				</ul>
+		</ol>
+		
+		<table border='1'>
+			<caption>思考漣漪</caption>
+			<thead>
+				<tr>
+					<td>
+					<td>crypto
+					<td>NFT
+			</thead>
+			<tbody>
+				<tr>
+					<td>return
+					<td>low
+					<td>high
+			</tbody>
+			<tfoot>
+				<tr>
+					<td>risk
+					<td colspan='2'>high
+			</tfoot>
+	</body>
+</html>

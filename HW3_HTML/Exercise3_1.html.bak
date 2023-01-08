@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset='utf-8'/>
+		<title>Exercise3</title> 
+	</head>
+
+	<body>
+		<a href='Exercise1.html' target="iframe_a">1. Exercise 1</a><br><br>
+		<a href='Exercise2.html' target="iframe_a">2. Exercise 2</a><br><br>
+		<a href='exercise3.html' target="iframe_a">3. Exercise 3</a><br><br>
+		<iframe name="iframe_a" width='600' height='400'></iframe><br>
+	</body>
+</html>
